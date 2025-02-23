@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shopfly/shopfly_app.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
+  
   //Adding configs for Android version, else don't add for ios
   Platform.isAndroid
       ? await Firebase.initializeApp(
@@ -17,21 +18,8 @@ Future<void> main() async {
           ),
         )
       : await Firebase.initializeApp();
-
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+  
+  runApp(
+    const ShopflyApp(),
+  );
 }
