@@ -4,9 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shopfly/shopfly_app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   //Adding configs for Android version, else don't add for ios
   Platform.isAndroid
       ? await Firebase.initializeApp(
@@ -18,7 +18,7 @@ void main() {
           ),
         )
       : await Firebase.initializeApp();
-  
+
   runApp(
     const ShopflyApp(),
   );
