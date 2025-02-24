@@ -2,13 +2,14 @@ import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shopfly/core/app/env.variables.dart';
 import 'package:shopfly/shopfly_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  //Dev Mode
+  //Set App in Dev Mode
   await EnvVariables.instance.init(envType: EnvTypeEnum.dev);
 
   //Adding configs for Android version, else don't add for ios
@@ -23,7 +24,10 @@ void main() async {
         )
       : await Firebase.initializeApp();
 
-  runApp(
-    const ShopflyApp(),
-  );
+  //Prevent Application from Auto-Rotation
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  ).then((_) {
+    runApp(const ShopflyApp());
+  });
 }
