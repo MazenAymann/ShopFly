@@ -28,6 +28,13 @@ dev_dependencies:
   #Lint rules for Dart and Flutter
   very_good_analysis: ^7.0.0
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.jpg"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icons/play_store_512.png"
+
 flutter:
   uses-material-design: true
   assets:
