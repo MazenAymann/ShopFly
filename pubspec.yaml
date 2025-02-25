@@ -15,6 +15,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   #Adapting screen and font size
   flutter_screenutil: ^5.9.3
+  #Native Splash Screen
+  flutter_native_splash: ^2.4.4
 
   flutter:
     sdk: flutter
@@ -27,7 +29,6 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.3
   #Lint rules for Dart and Flutter
   very_good_analysis: ^7.0.0
-
 flutter_icons:
   android: true
   ios: true
